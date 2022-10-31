@@ -1,0 +1,26 @@
+﻿@model Data.Models.Watch;
+
+@{
+    string returnUrl = ViewBag.ReturnUrl;
+}
+<a class="btn btn-outline-secondary" href="@returnUrl">Back</a>
+<div class="watch-container">
+    <img src="@Model.img" width="500" />
+
+    <div class="Details">
+
+        <h1>@Model.Model</h1>
+        <h1 class="Price align-self-center">$ @Model.Price</h1>
+        <h3>Brand</h3>
+        <p>@Model.Brand</p>
+        <h3>Material</h3>
+        <p>@Model.Material</p>
+        <h3>Guarantee</h3>
+        <p>@Model.Guarantee</p>
+        <h3>ClockFace</h3>
+        <p>@Model.ClockFace?.Name</p>
+
+        <a class="add" asp-controller="Cart" asp-action="Add" asp-route-id="@Model.Id">ADD TO CART</a>
+    </div>
+
+</div>

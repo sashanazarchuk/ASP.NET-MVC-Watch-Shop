@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Data.Models.Watch>
+<p>@Model.Count() Watches was found</p>
+@{
+    string? alertMessage = TempData["Message"]?.ToString();
+}
+<form asp-action="Watches" method="post">
+    <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+    <input type="submit" value="Search" class="btn btn-primary" />
+</form>
+<a class="btn btn-primary" asp-action="Watches">Back to full List</a>
+<table class="table table-dark table-striped">
+    <thead>
+
+        <tr>
+            <th>#</th>
+            <th>
+                <a asp-action="Watches" asp-route-sortOrder="@ViewData["ModelSortParam"]">
+                    @Html.DisplayNameFor(w=>w.Model)
+                </a>
+
+            </th>
+            <th>Brand</th>
+            <th>
+                <a asp-action="Watches" asp-route-sortOrder="@ViewData["MaterialSortParam"]">
+                    @Html.DisplayNameFor(w=>w.Material)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Watches" asp-route-sortOrder="@ViewData["GuaranteeSortParam"]">
+                    @Html.DisplayNameFor(w=>w.Guarantee)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Watches" asp-route-sortOrder="@ViewData["ClockFaceSortParam"]">
+                    @Html.DisplayNameFor(w=>w.ClockFace)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Watches" asp-route-sortOrder="@ViewData["PriceSortParam"]">
+                    @Html.DisplayNameFor(w=>w.Price)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var watch in Model)
+        {
+            <tr>
+                <td>@watch.Id</td>
+                <td>@watch.Model</td>
+                <td>@watch.Brand</td>
+                <td>@watch.Material</td>
+                <td>@watch.Guarantee</td>
+                <td>@watch.ClockFace?.Name</td>
+                <td>@watch.Price $</td>
+                <td>
+                    <form asp-controller="Watch" asp-action="Delete" method="post" asp-route-id="@watch.Id">
+                        <a asp-controller="Watch" asp-action="Details" asp-route-id="@watch.Id" class="btn btn-outline-secondary">Details</a>
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                        <a asp-controller="Watch" asp-action="Edit" asp-route-id="@watch.Id" class="btn btn-warning">Edit</a>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Watch" asp-action="Create" class="btn btn-info">Create</a>
+
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="toster-block-delete" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                @alertMessage
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    @if (alertMessage != null)
+    {
+        <script>
+            var toasterBlock = document.getElementById('toster-block-delete')
+
+            function showToaster() {
+                var toast = new bootstrap.Toast(toasterBlock)
+                toast.show()
+            }
+            showToaster();
+        </script>
+    }
+}

@@ -1,0 +1,56 @@
+﻿@model Data.Models.Watch;
+<h1>Create Watch</h1>
+<form asp-action="Create" method="post" class="row g-3">
+    <div class="row g-3">
+        <div class="col">
+            <label asp-for="Model" class="form-label">Model</label>
+            <input asp-for="Model" class="form-control" placeholder="Air-King">
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+
+        <div class="col">
+            <label asp-for="Brand" class="form-label">Brand</label>
+            <input asp-for="Brand" class="form-control" placeholder="Rolex">
+            <span asp-validation-for="Brand" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col">
+            <label asp-for="Material" class="form-label">Material</label>
+            <input asp-for="Material" class="form-control" placeholder="Stainless Steel">
+            <span asp-validation-for="Material" class="text-danger"></span>
+        </div>
+        <div class="col">
+            <label asp-for="Guarantee" class="form-label">Guarantee</label>
+            <input asp-for="Guarantee" class="form-control" placeholder="4 years">
+            <span asp-validation-for="Guarantee" class="text-danger"></span>
+        </div>
+
+    </div>
+
+    <div class="row g-3">
+        <div class="col">
+            <label asp-for="Price" class="form-label">Price</label>
+            <input asp-for="Price" class="form-control" placeholder="12500">
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="col">
+            <label asp-for="img" class="form-label">Image</label>
+            <input asp-for="img" class="form-control" placeholder="/Images/Rolex Datejust.png">
+            <span asp-validation-for="img" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            <label asp-for="ClockFaceId" class="form-label">ClockFace</label>
+            <select asp-for="ClockFaceId" asp-items="@ViewBag.CFList" class="form-select"></select>
+            <span asp-validation-for="ClockFaceId" class="text-danger"></span>
+        </div>
+
+    </div>
+    <div class="row g-3">
+        <div class="col">
+            <a class="btn btn-outline-secondary" asp-action="Watches">Back</a>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Data.Models.Watch>;
+
+@{
+    string returnUrl = ViewBag.ReturnUrl;
+}
+<a class="btn btn-outline-secondary" href="@returnUrl">Back</a>
+
+
+<div class="d-flex justify-content-end">
+    <div class="p-2"> Total Price: @Model.Sum(x => x.Price)$</div>
+    <div class="p-2"><button class="btn btn-primary" type="submit">Confirm</button></div>
+</div>
+
+@foreach (var w in @Model)
+{
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="@w.img" class="img-fluid rounded-start" alt="@w.Model">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@w.Model </h5>
+                    <p class="card-text">Brand: @w.Brand</p>
+                    <p class="card-text">Material: @w.Material</p>
+                    <p class="card-text">Guarantee: @w.Guarantee</p>
+                    <p class="card-text">ClockFace: @w.ClockFace?.Name</p>
+                    <span class="badge bg-info ">Price: @w.Price $</span>
+                    <a asp-controller="Cart" asp-action="Remove" asp-route-id="@w.Id" class="btn btn-secondary">Remove</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,122 @@
+.product-img {
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.watch-container {
+    display: flex;
+}
+
+.Details {
+    width: 400px;
+    box-shadow: 3px 3px 25px;
+    border-radius: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 2%;
+    height: 100%;
+    padding: 2%;
+}
+
+.add {
+    width: 200px;
+    background-color: rgb(100,149,237);
+    border: none;
+    border-radius: 10px 10px 10px 10px;
+    color: White;
+    align-self: center;
+    padding: 2%;
+    font-weight: bold;
+    text-decoration:none;
+}
+
+.Price {
+    font-size: 50px;
+}
+
+.logo {
+    width: 150px;
+    padding: 1%;
+    margin-left: 50px;
+}
+
+
+#Now-Available {
+    color: white;
+    background-color: black;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 30px 30px 30px 30px;
+    padding: .5%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+}
+
+#Pre-Order {
+    color: black;
+    background-color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 1%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    transition: all .5s;
+}
+
+    #Pre-Order:hover {
+        background-color: black;
+        color: white;
+        transition: all .5s;
+    }
+
+.menu {
+    margin: 10%;
+}
+
+.ReleaseModel {
+    font-size: 70px;
+    color: White;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.main {
+    padding-top: 5%;
+    padding-bottom: 15%;
+    background-image: url("Img/Main.jpg");
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.navbar a {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: all .2s;
+}
+
+    .navbar a:hover {
+        background-size: 100% 2px;
+    }
+
+.PHC {
+    font-size: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: White;
+}
+
+.main-desc {
+    text-align: center;
+    font-size: 23px;
+}
+
+.trending_now {
+    font-family: serif;
+    font-size: 60px;
+}

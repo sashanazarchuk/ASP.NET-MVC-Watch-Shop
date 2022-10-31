@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Project.ViewModels.WatchCartViewModel>;
+@{
+    string? alertMessage = TempData["Message"]?.ToString();
+}
+
+<style>
+    body {
+        background-image: url("/Images/Main.jpg");
+        object-fit: cover;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+</style>
+
+<div class="main">
+    <div class="menu">
+        <a Id="Now-Available" href="#">Now Available</a>
+        <h1 class="ReleaseModel">Oyster Perpetual<br>Quintessence Oyster</h1>
+        <a Id="Pre-Order" href="#">Pre-Order Now</a>
+    </div>
+</div>
+
+<div class="text-center">
+    <h1 class="trending_now">Trending Now</h1>
+    <hr />
+    <p class="main-desc">
+        We are happy to introduce the new Rolex Collection.<br> These are three quartz models
+        designed with simplicity and elegance kept in mind.
+    </p>
+
+    <div class="row row-cols-2 row-cols-lg-3 g-2  align-items-stretch">
+        @foreach (var w in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@w.Watch.img" class="card-img-top product-img" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">@w.Watch.Model</h5>
+                        <p>Price: @w.Watch.Price$</p>
+                        <p>ClockFace: @w.Watch.ClockFace?.Name</p>
+                        <a asp-controller="Watch" asp-action="Details" asp-route-id="@w.Watch.Id" class="btn btn-secondary">Details</a>
+                        @if (!w.IsInCart)
+                        {
+                            <a asp-controller="Cart" asp-action="Add" asp-route-id="@w.Watch.Id" class="btn btn-primary"><i class="bi bi-cart-plus "></i></a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Cart" asp-action="Remove" asp-route-id="@w.Watch.Id" class="btn btn-secondary"><i class="bi bi-cart-x "></i></a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div id="toster-block-delete" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @alertMessage
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts
+        {
+        @if (alertMessage != null)
+        {
+            <script>
+                var toasterBlock = document.getElementById('toster-block-delete')
+
+                function showToaster() {
+                    var toast = new bootstrap.Toast(toasterBlock)
+                    toast.show()
+                }
+                showToaster();
+            </script>
+        }
+    }
+    </div>

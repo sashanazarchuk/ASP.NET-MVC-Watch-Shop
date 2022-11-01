@@ -8,7 +8,7 @@
 
 <div class="d-flex justify-content-end">
     <div class="p-2"> Total Price: @Model.Sum(x => x.Price)$</div>
-    <div class="p-2"><button class="btn btn-primary" type="submit">Confirm</button></div>
+    <div class="p-2"><a asp-controller="Orders" asp-action="Add" class="btn btn-primary">Confirm</a></div>
 </div>
 
 @foreach (var w in @Model)

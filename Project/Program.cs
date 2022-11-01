@@ -1,13 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using Data;
 using Microsoft.AspNetCore.Identity;
+using Data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 string connectionStr = builder.Configuration.GetConnectionString("SomeecomDB");
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<WatchShopDbContext>(options => options.UseSqlServer(connectionStr));
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<WatchShopDbContext>();
 builder.Services.AddDistributedMemoryCache();
 

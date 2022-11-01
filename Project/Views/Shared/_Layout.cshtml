@@ -25,6 +25,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-controller="Watch" asp-action="Watches">CONTACT</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Orders" asp-action="Index">ORDERS</a>
+                    </li>
                 </ul>
                 <form asp-controller="Watch" asp-action="Watches" method="post">
                     <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
@@ -35,6 +38,7 @@
                     <li class="nav-item">
                         <partial name="_LoginPartial" />
                     </li>
+                 
                     <li class="nav-item">
                         @{
                             var cartList = Context.Session.GetObject<List<int>>("cartKey");

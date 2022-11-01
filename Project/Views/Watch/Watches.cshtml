@@ -14,29 +14,29 @@
         <tr>
             <th>#</th>
             <th>
-                <a asp-action="Watches" asp-route-sortOrder="@ViewData["ModelSortParam"]">
+                <a class="sorted_type" asp-action="Watches" asp-route-sortOrder="@ViewData["ModelSortParam"]">
                     @Html.DisplayNameFor(w=>w.Model)
                 </a>
 
             </th>
             <th>Brand</th>
             <th>
-                <a asp-action="Watches" asp-route-sortOrder="@ViewData["MaterialSortParam"]">
+                <a class="sorted_type" asp-action="Watches" asp-route-sortOrder="@ViewData["MaterialSortParam"]">
                     @Html.DisplayNameFor(w=>w.Material)
                 </a>
             </th>
             <th>
-                <a asp-action="Watches" asp-route-sortOrder="@ViewData["GuaranteeSortParam"]">
+                <a class="sorted_type" asp-action="Watches" asp-route-sortOrder="@ViewData["GuaranteeSortParam"]">
                     @Html.DisplayNameFor(w=>w.Guarantee)
                 </a>
             </th>
             <th>
-                <a asp-action="Watches" asp-route-sortOrder="@ViewData["ClockFaceSortParam"]">
+                <a class="sorted_type" asp-action="Watches" asp-route-sortOrder="@ViewData["ClockFaceSortParam"]">
                     @Html.DisplayNameFor(w=>w.ClockFace)
                 </a>
             </th>
             <th>
-                <a asp-action="Watches" asp-route-sortOrder="@ViewData["PriceSortParam"]">
+                <a class="sorted_type" asp-action="Watches" asp-route-sortOrder="@ViewData["PriceSortParam"]">
                     @Html.DisplayNameFor(w=>w.Price)
                 </a>
             </th>

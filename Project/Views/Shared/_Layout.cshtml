@@ -20,9 +20,6 @@
                         <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">PRIVACY</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link text-dark" asp-controller="Watch" asp-action="Watches">WATCH</a>
                     </li>
                     <li class="nav-item">
@@ -36,17 +33,14 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#"><i class="bi bi-person PHC"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="#"><i class="bi bi-heart PHC"></i></a>
+                        <partial name="_LoginPartial" />
                     </li>
                     <li class="nav-item">
                         @{
                             var cartList = Context.Session.GetObject<List<int>>("cartKey");
                         }
                         <a class="nav-link text-dark" asp-controller="Cart" asp-action="Index">
-                            <i class="bi bi-cart PHC"></i>
+                            <i class="bi bi-cart"></i>
                             <span class="badge bg-secondary">@(cartList?.Count ?? 0)</span>
                         </a>
                     </li>
@@ -60,10 +54,10 @@
         </main>
     </div>
 
-@*    <footer class="border-bottom-0 footer text-muted">
-        <div class="container">
-            &copy; 2022 - Project - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    @*    <footer class="border-bottom-0 footer text-muted">
+    <div class="container">
+    &copy; 2022 - Project - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
     </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(WatchShopDbContext))]
-    partial class WatchShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221101075737_AddIdentity")]
+    partial class AddIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +38,7 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ClockFace", (string)null);
+                    b.ToTable("ClockFace");
 
                     b.HasData(
                         new
@@ -104,7 +106,7 @@ namespace Data.Migrations
 
                     b.HasIndex("ClockFaceId");
 
-                    b.ToTable("Watches", (string)null);
+                    b.ToTable("Watches");
 
                     b.HasData(
                         new

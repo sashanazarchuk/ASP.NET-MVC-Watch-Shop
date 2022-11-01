@@ -28,7 +28,7 @@
     align-self: center;
     padding: 2%;
     font-weight: bold;
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .Price {
@@ -102,13 +102,11 @@
         background-size: 100% 2px;
     }
 
-.PHC {
-    font-size: 25px;
-}
 
-a {
+
+.sorted_type {
+    color: white;
     text-decoration: none;
-    color: White;
 }
 
 .main-desc {
@@ -120,3 +118,13 @@ a {
     font-family: serif;
     font-size: 60px;
 }
+
+.facebook-color {
+    color: white;
+    background-color: #5436cf;
+}
+
+    .facebook-color:hover {
+        color: white;
+        background-color: #4b30ba;
+    }

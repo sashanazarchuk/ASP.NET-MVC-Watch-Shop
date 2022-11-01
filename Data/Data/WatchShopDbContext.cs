@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Data.Models;
 using Data.Mock;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+
 namespace Data
 {
-    public class WatchShopDbContext : DbContext
+    public class WatchShopDbContext : IdentityDbContext
     {
         public WatchShopDbContext() { }
         public WatchShopDbContext(DbContextOptions options) : base(options) { }
@@ -17,7 +20,5 @@ namespace Data
         }
         public DbSet<Watch> Watches { get; set; }
         public DbSet<ClockFace> ClockFace { get; set; }
-
-
     }
 }
